@@ -14,7 +14,7 @@
 
 The roofline model (Williams, Waterman and Patterson, 2009) bounds the attainable performance of a kernel on a machine by two ceilings:
 
-$$P_{\text{attainable}} = \min\left(P_{\text{peak}},\; I \times B_{\text{peak}}\right)$$
+$$P_{\text{attainable}} = \min\left(P_{\text{peak}},\quad I \times B_{\text{peak}}\right)$$
 
 where **I** is the kernel's **operational (arithmetic) intensity**: FLOPs per byte moved to and from memory, and B is the memory bandwidth. Plotted on log–log axes, performance against intensity is a sloped line (memory-bound region) that meets a flat line (compute-bound region) at the **ridge point**, I* = P_peak / B_peak.
 
@@ -91,7 +91,7 @@ Summing per-operator roofline times assumes every operator reads its inputs from
 
 An ideally **fused** implementation would keep intermediates on chip, so only "essential" traffic remains (weights, the KV cache, model inputs and outputs). One roofline over the whole graph then gives a **lower bound**:
 
-$$t \ge \max\left(\frac{\sum \text{FLOPs}}{F},\; \frac{\text{essential bytes}}{B}\right)$$
+$$t \ge \max\left(\frac{\sum \text{FLOPs}}{F},\quad \frac{\text{essential bytes}}{B}\right)$$
 
 Real implementations land between. On this GitHub, a Llama-3-8B prefill trace costed this way gave 126.68 ms unfused (meta-device trace, unfused attention) against a 71.01 ms fused bound, with the simulator's closed form at 58.53 ms (all before a fixed step overhead). The gap between unfused and fused is the case for fusion (e.g. flash attention).
 
@@ -161,7 +161,7 @@ The roofline is the right first model and a necessary sanity check, but a DES or
 
 A lower bound takes, for each resource, the total work it must do divided by its rate, and takes the maximum:
 
-$$t \ge \max\left( \frac{\text{total HBM bytes}}{B},\; \frac{\text{NTT butterflies}}{\text{butterfly rate}},\; \frac{\text{MACs}}{\text{MAC rate}},\; \dots \right)$$
+$$t \ge \max\left( \frac{\text{total HBM bytes}}{B},\quad \frac{\text{NTT butterflies}}{\text{butterfly rate}},\quad \frac{\text{MACs}}{\text{MAC rate}},\quad \dots \right)$$
 
 because no schedule can make any resource do its work faster than its peak rate. Dependencies only add to this.
 

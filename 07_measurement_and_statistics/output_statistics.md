@@ -41,7 +41,7 @@ The bias is worst near saturation, where the system takes longest to reach stead
 
 Run R independent replications (independent random streams, same configuration), each with warm-up deleted, and take one summary per replication (e.g. its mean latency, or its p99). Those R numbers are independent and identically distributed, so:
 
-$$\bar{X} \pm t_{R-1,\,0.975}\, \frac{s}{\sqrt{R}}$$
+$$\bar{X} \pm t_{R-1, 0.975} \cdot \frac{s}{\sqrt{R}}$$
 
 where s is the sample standard deviation of the R summaries. With R = 10, t ≈ 2.262; with R = 20, t ≈ 2.093.
 

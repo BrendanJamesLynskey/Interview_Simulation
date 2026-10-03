@@ -17,7 +17,7 @@
 
 An architecture simulator rarely knows capacitances, so it models power from **activity counts and energy per operation**:
 
-$$P = P_{\text{static}} + \frac{\sum_{\text{ops}} n_{\text{op}} \, E_{\text{op}}}{t}$$
+$$P = P_{\text{static}} + \frac{\sum_{\text{ops}} n_{\text{op}} E_{\text{op}}}{t}$$
 
 with energies per FLOP, per byte moved from DRAM, per SRAM access, per link byte. The LLM serving simulator on this GitHub uses exactly this form, with clearly illustrative H100-class coefficients: 100 W idle, 1.0 pJ per FLOP, 60 pJ per HBM byte.
 

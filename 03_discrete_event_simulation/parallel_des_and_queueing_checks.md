@@ -41,7 +41,7 @@ At ρ = 0.8 and μ = 1, W_q = 4 service times; at ρ = 0.9, 9; at ρ = 0.95, 19.
 
 For deterministic service (M/D/1), W_q is exactly half the M/M/1 value: ρ / (2μ(1 − ρ)). More generally (M/G/1, the Pollaczek–Khinchine formula):
 
-$$W_q = \frac{\rho\,(1 + C_s^2)}{2(1-\rho)}\,\mathbb{E}[S]$$
+$$W_q = \frac{\rho (1 + C_s^2)}{2(1-\rho)} \cdot \mathbb{E}[S]$$
 
 where C_s is the coefficient of variation of the service time. Variability, not just utilisation, sets the queueing delay.
 
