@@ -19,7 +19,7 @@ An **instruction-set simulator (ISS)** executes a target processor's instruction
 
 **Common mistake:** expecting an ISS to report cycle counts. Functional ISSs count instructions; timing needs a separate model.
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Level 6: Software Virtual Platforms"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/16)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Level 6: Software Virtual Platforms"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/19)
 
 ### Q2. What is a virtual platform, and who uses it?
 
@@ -35,7 +35,7 @@ Users:
 
 It trades timing accuracy for speed: loosely timed transaction-level models run fast enough to boot an OS in minutes.
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Level 6: Software Virtual Platforms"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/16) · [Glossary: transaction-level modelling (SystemC TLM-2.0)](https://brendanjameslynskey.github.io/LLM_Hub_Inference_Simulators/#g-tlm)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Level 6: Software Virtual Platforms"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/19) · [Glossary: transaction-level modelling (SystemC TLM-2.0)](https://brendanjameslynskey.github.io/LLM_Hub_Inference_Simulators/#g-tlm)
 
 ### Q3. What is Monte Carlo simulation, and how does its error scale?
 
@@ -49,7 +49,7 @@ So **halving the error needs four times the samples**. The rate does not depend 
 
 Uses in hardware: statistical timing and yield under process variation, bit-error rates, reliability, and any discrete-event simulation with random inputs (each replication is one Monte Carlo sample of the output).
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Monte Carlo and Variance Reduction"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/15) · [Introduction to Simulation, "Deterministic and Stochastic"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/22)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Monte Carlo and Variance Reduction"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/18) · [Introduction to Simulation, "Deterministic and Stochastic"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/25)
 
 ---
 
@@ -82,7 +82,7 @@ Hard parts:
 - **Performance**: crossing the boundary (inter-process communication, foreign-function calls) can dominate the run time.
 - **Determinism**: making the combined run reproducible.
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Co-Simulation and Hardware-in-the-Loop"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/23) · [InfSim 01, "Co-Simulation in Practice"](https://brendanjameslynskey.github.io/InfSim_01_Why_Simulate/#slide-08) · [Glossary: RTL simulation, co-simulation and golden models](https://brendanjameslynskey.github.io/LLM_Hub_Inference_Simulators/#g-cosim)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Co-Simulation and Hardware-in-the-Loop"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/26) · [InfSim 01, "Co-Simulation in Practice"](https://brendanjameslynskey.github.io/InfSim_01_Why_Simulate/#slide-08) · [Glossary: RTL simulation, co-simulation and golden models](https://brendanjameslynskey.github.io/LLM_Hub_Inference_Simulators/#g-cosim)
 
 ### Q6. What is hardware-in-the-loop (HIL) testing, and what constraint does it impose on the simulation?
 
@@ -94,7 +94,7 @@ The constraint: the plant model must run in **hard real time**. Every simulation
 
 Why use it: test fault cases that would damage real hardware, run thousands of automated scenarios, and test before the real plant exists.
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Co-Simulation and Hardware-in-the-Loop"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/23)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Co-Simulation and Hardware-in-the-Loop"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/26)
 
 ---
 
@@ -129,7 +129,7 @@ But:
 - If the requirement is parts-per-million, 10,000 samples cannot demonstrate it; you need importance sampling or an extrapolation method (e.g. fitting the tail of a margin distribution).
 - The bigger risk is usually **model error**, not sampling error: correlations between parameters, missing failure mechanisms, and corner models that do not reflect the process.
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Monte Carlo and Variance Reduction"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/15)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Monte Carlo and Variance Reduction"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/18)
 
 ### Q9. When would you choose a virtual platform over an FPGA prototype for early software, and vice versa?
 
@@ -149,4 +149,4 @@ But:
 
 Many teams run both, with a **hybrid**: processors on a fast virtual platform, new IP blocks on an FPGA, connected by a transaction-level bridge.
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Level 6: Software Virtual Platforms"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/16) · [Introduction to Simulation, "Gate Level, Emulation and FPGA Prototypes"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/11)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Level 6: Software Virtual Platforms"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/19) · [Introduction to Simulation, "Gate Level, Emulation and FPGA Prototypes"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/14)

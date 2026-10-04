@@ -26,7 +26,7 @@ Each rung up adds detail, accuracy (if built right) and confidence, and costs sp
 
 **Common mistake:** believing that a higher rung is always "better". A cycle-accurate model that cannot run the workload in a day answers nothing.
 
-**Go deeper on this GitHub:** [InfSim 01, "The Fidelity Ladder"](https://brendanjameslynskey.github.io/InfSim_01_Why_Simulate/#slide-03) · [Introduction to Simulation, "The Levels at a Glance"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/3) · [Glossary: the fidelity ladder](https://brendanjameslynskey.github.io/LLM_Hub_Inference_Simulators/#g-fidelity)
+**Go deeper on this GitHub:** [InfSim 01, "The Fidelity Ladder"](https://brendanjameslynskey.github.io/InfSim_01_Why_Simulate/#slide-03) · [Introduction to Simulation, "The Levels at a Glance"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/6) · [Glossary: the fidelity ladder](https://brendanjameslynskey.github.io/LLM_Hub_Inference_Simulators/#g-fidelity)
 
 ### Q2. What does each rung of the ladder throw away?
 
@@ -60,7 +60,7 @@ Two measured points from this GitHub show the scale of speed differences even wi
 - Two RTL simulators on the same NTT core: an event-driven simulator (Icarus) ran 6,416 clock cycles per second and a cycle-based compiled simulator (Verilator) ran 837,883, 131× more. Verilator paid a 4.38 s compile first.
 - A SimPy DES of LLM serving simulated 770.9 s of serving 835× faster than real time; an exact macro-stepped fast path reached 1,566× real time with identical results.
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Speed, Accuracy and Effort"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/26) · [the RTL speed measurement](https://github.com/BrendanJamesLynskey/Introduction_to_Simulation/blob/main/demo/rtl_speed/results.md) · [the DES speed measurement](https://github.com/BrendanJamesLynskey/Introduction_to_Simulation/blob/main/demo/des_speed/results.md)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Speed, Accuracy and Effort"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/29) · [the RTL speed measurement](https://github.com/BrendanJamesLynskey/Introduction_to_Simulation/blob/main/demo/rtl_speed/results.md) · [the DES speed measurement](https://github.com/BrendanJamesLynskey/Introduction_to_Simulation/blob/main/demo/des_speed/results.md)
 
 ---
 
@@ -129,7 +129,7 @@ The "co-flow" also catches mismatches early: if the RTL is slower than the model
 
 What you do not do: build a cycle-accurate model of both. The detail would not be ready in a week, and the ranking question rarely needs it.
 
-**Go deeper on this GitHub:** [InfSim 01, "Interactive: How Long Would It Take to Simulate?"](https://brendanjameslynskey.github.io/InfSim_01_Why_Simulate/#slide-05) · [Introduction to Simulation, "How to Choose a Level"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/27)
+**Go deeper on this GitHub:** [InfSim 01, "Interactive: How Long Would It Take to Simulate?"](https://brendanjameslynskey.github.io/InfSim_01_Why_Simulate/#slide-05) · [Introduction to Simulation, "How to Choose a Level"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/30)
 
 ### Q8. What makes a model "accurate enough"? How would you set an accuracy target?
 

@@ -22,7 +22,7 @@
 
 The choice follows the problem: a broadband transient on a PCB via suits FDTD; a package with curved, layered materials suits FEM; an antenna in free space suits MoM.
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Field Solvers: FDTD, FEM and MoM"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/6) · [Introduction to Simulation, "Level 1: Physics and Numerical Methods"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/5)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Field Solvers: FDTD, FEM and MoM"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/9) · [Introduction to Simulation, "Level 1: Physics and Numerical Methods"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/8)
 
 ### Q2. What is the CFL condition, and what does it mean for FDTD run time?
 
@@ -36,7 +36,7 @@ Consequence: the time step is tied to the smallest cell. Halving the cell size (
 
 **Common mistake:** thinking a smaller time step only improves accuracy. In an explicit scheme, exceeding the CFL limit makes the solution blow up, not just become less accurate.
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Field Solvers: FDTD, FEM and MoM"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/6) · [Introduction to Simulation, "Stiffness, Stability and Step Control"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/20)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Field Solvers: FDTD, FEM and MoM"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/9) · [Introduction to Simulation, "Stiffness, Stability and Step Control"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/23)
 
 ### Q3. What does SPICE actually do in a transient simulation?
 
@@ -51,7 +51,7 @@ Four ideas, nested:
 
 Every time step can therefore involve several sparse LU solves. That is why SPICE is slow on large circuits and long transients.
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Level 2: Circuits, and What SPICE Does"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/8)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Level 2: Circuits, and What SPICE Does"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/11)
 
 ---
 
@@ -72,7 +72,7 @@ Measured on this GitHub's RC demo (τ = 1, square-wave input, 20τ simulated): a
 
 An implicit method costs a linear (or nonlinear) solve per step, but for stiff systems it allows steps sized by accuracy, not stability, which is a net win.
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Interactive: One Circuit, Four Solvers"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/21) · [the solver code and recorded results](https://github.com/BrendanJamesLynskey/Introduction_to_Simulation/blob/main/demo/results.md)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Interactive: One Circuit, Four Solvers"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/24) · [the solver code and recorded results](https://github.com/BrendanJamesLynskey/Introduction_to_Simulation/blob/main/demo/results.md)
 
 ### Q5. What is "trapezoidal ringing", and how do simulators deal with it?
 
@@ -87,7 +87,7 @@ Remedies:
 
 **Interview point:** recognising ringing as a numerical artefact, not circuit behaviour, is the skill. Halve the step: if the "oscillation" changes period with the step, it is numerical.
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Stiffness, Stability and Step Control"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/20)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Stiffness, Stability and Step Control"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/23)
 
 ### Q6. Why do breakpoints matter so much for an adaptive-step solver?
 
@@ -99,7 +99,7 @@ Telling the solver the edge times (**breakpoints**) lets it land exactly on each
 
 Measured on this GitHub's RC demo with an adaptive Dormand–Prince 5(4) solver at tolerance 1e-6: without breakpoints, 2,660 right-hand-side evaluations with 218 rejected steps; with the edges as breakpoints, 560 evaluations, and a maximum error about 1,000× smaller (2.5e-7 V against 2.39e-4 V).
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Interactive: One Circuit, Four Solvers"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/21) · [Introduction to Simulation, "Level 2: Circuits, and What SPICE Does"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/8)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Interactive: One Circuit, Four Solvers"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/24) · [Introduction to Simulation, "Level 2: Circuits, and What SPICE Does"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/11)
 
 ### Q7. Why are piecewise-linear switching simulators so much faster than SPICE on power converters?
 
@@ -117,7 +117,7 @@ The RC demo on this GitHub shows the principle in miniature: its event-driven ex
 
 The cost: device detail is lost (no nonlinear switching transients, simplified losses). Use it for control-loop design and long transients; use SPICE with full device models for switching-node ringing and loss detail.
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Switching and Behavioural Models"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/9) · [Introduction to Simulation, "Time-Stepping and Event-Driven"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/19)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Switching and Behavioural Models"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/12) · [Introduction to Simulation, "Time-Stepping and Event-Driven"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/22)
 
 ---
 
@@ -136,7 +136,7 @@ No single solver handles both the physics and the statistics:
 
 The general principle: **use the highest-fidelity method only where the physics demands it, and hand off to faster abstractions** through a well-defined interface (S-parameters, pulse responses).
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Switching and Behavioural Models"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/9) · [Introduction to Simulation, "One Accelerator, Every Level"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/17)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Switching and Behavioural Models"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/12) · [Introduction to Simulation, "One Accelerator, Every Level"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/20)
 
 ### Q9. A transient SPICE run of a large mixed-signal block takes two days. What can you do?
 
@@ -152,4 +152,4 @@ Work through the causes of the cost:
 
 And always **check the faster setup against the slow one** on a short run before trusting it.
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Level 2: Circuits, and What SPICE Does"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/8) · [Introduction to Simulation, "Co-Simulation and Hardware-in-the-Loop"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/23)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Level 2: Circuits, and What SPICE Does"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/11) · [Introduction to Simulation, "Co-Simulation and Hardware-in-the-Loop"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/26)

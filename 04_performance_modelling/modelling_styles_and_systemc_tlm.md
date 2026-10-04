@@ -22,7 +22,7 @@
 
 Trace-driven models are the workhorse of accelerator and memory-system studies: record a kernel-level or memory-access trace once, replay it against many hardware variants. They fail when the workload's behaviour depends on timing (a scheduler that batches differently under load, a lock that spins longer on a slower machine).
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Architecture: Transaction-Level and Cycle-Level"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/13) · [Glossary: kernel-level trace](https://brendanjameslynskey.github.io/FHE_Hub_Accelerator_Simulators/#g-trace) · [FHESim 03, "The Trace: Contract Between Scheme and Hardware"](https://brendanjameslynskey.github.io/FHESim_03_Simulating_an_FHE_Accelerator/#slide-03)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Architecture: Transaction-Level and Cycle-Level"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/16) · [Glossary: kernel-level trace](https://brendanjameslynskey.github.io/FHE_Hub_Accelerator_Simulators/#g-trace) · [FHESim 03, "The Trace: Contract Between Scheme and Hardware"](https://brendanjameslynskey.github.io/FHESim_03_Simulating_an_FHE_Accelerator/#slide-03)
 
 ### Q2. What is transaction-level modelling, and what does TLM-2.0 standardise?
 

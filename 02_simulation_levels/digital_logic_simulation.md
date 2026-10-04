@@ -26,7 +26,7 @@ Trade-offs:
 
 Measured on this GitHub, same NTT core: Icarus 6,416 cycles per second (0.03 s compile), Verilator 837,883 cycles per second (4.38 s compile): **131×** faster once compiled.
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Level 3: Digital Logic, Event-Driven and Cycle-Based"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/10) · [Glossary: Verilator and Icarus Verilog](https://brendanjameslynskey.github.io/SimEng_Hub_Toolkit/#g-verilator)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Level 3: Digital Logic, Event-Driven and Cycle-Based"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/13) · [Glossary: Verilator and Icarus Verilog](https://brendanjameslynskey.github.io/SimEng_Hub_Toolkit/#g-verilator)
 
 ### Q2. What is a delta cycle, and why does it exist?
 
@@ -61,7 +61,7 @@ Gate-level simulation runs the synthesised (and possibly placed-and-routed) netl
 
 It is much slower than RTL simulation, so it is run on targeted tests, not the full regression. Static timing analysis and formal equivalence checking do most of the timing and equivalence work.
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Gate Level, Emulation and FPGA Prototypes"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/11)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Gate Level, Emulation and FPGA Prototypes"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/14)
 
 ---
 
@@ -81,7 +81,7 @@ It is much slower than RTL simulation, so it is run on targeted tests, not the f
 
 **Rule of thumb:** move up when the test needs more cycles than the lower platform can deliver in a day (booting an OS is billions of cycles), and stay down when you need visibility and quick turnaround.
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Gate Level, Emulation and FPGA Prototypes"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/11) · [InfSim 08, "Accelerating the RTL End"](https://brendanjameslynskey.github.io/InfSim_08_Accelerating_Simulators/#slide-13)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Gate Level, Emulation and FPGA Prototypes"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/14) · [InfSim 08, "Accelerating the RTL End"](https://brendanjameslynskey.github.io/InfSim_08_Accelerating_Simulators/#slide-13)
 
 ### Q5. Your RTL regression takes 14 hours. How do you speed it up?
 
@@ -108,7 +108,7 @@ The subtlety is **X-optimism**: an RTL `if (sel)` with `sel = X` takes the `else
 
 Two-state cycle-based simulators represent each bit as 0 or 1, so X cannot exist. They typically initialise state to zero or to random values. Randomised initialisation across seeds is a practical substitute: if results depend on the initial values, there is a reset bug.
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Level 3: Digital Logic, Event-Driven and Cycle-Based"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/10)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Level 3: Digital Logic, Event-Driven and Cycle-Based"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/13)
 
 ---
 
@@ -141,7 +141,7 @@ Legitimate causes:
 
 What to do: treat a difference as a bug report against the RTL first. Lint (Verilator's lint is strict and useful), remove races, make reset explicit, and only then blame a simulator. Running two simulators in CI is itself a cheap race detector.
 
-**Go deeper on this GitHub:** [SimEng 05, "Verilator, Icarus and CI for RTL"](https://brendanjameslynskey.github.io/SimEng_05_Verification_Bridge_cocotb/#slide-10) · [Introduction to Simulation, "Level 3: Digital Logic, Event-Driven and Cycle-Based"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/10)
+**Go deeper on this GitHub:** [SimEng 05, "Verilator, Icarus and CI for RTL"](https://brendanjameslynskey.github.io/SimEng_05_Verification_Bridge_cocotb/#slide-10) · [Introduction to Simulation, "Level 3: Digital Logic, Event-Driven and Cycle-Based"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/13)
 
 ### Q9. How do you turn RTL simulation into input for a faster performance model?
 

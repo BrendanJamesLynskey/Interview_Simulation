@@ -33,7 +33,7 @@ Unlike a generic question bank, every answer ends with a **"Go deeper on this Gi
 
 What a simulator is for, how fidelity trades against speed and effort, and how models earn trust.
 
-- [`why_simulate.md`](01_foundations/why_simulate.md) — Simulation vs analysis vs measurement, the four jobs of a simulator, when a spreadsheet is enough, scoping from the question
+- [`why_simulate.md`](01_foundations/why_simulate.md) — Simulation vs analysis vs measurement, why simulate rather than prototype, the four jobs of a simulator, which level for exploration vs verification, when a spreadsheet is enough, scoping from the question
 - [`fidelity_ladder_and_tradeoffs.md`](01_foundations/fidelity_ladder_and_tradeoffs.md) — Analytical → DES → TLM → cycle-level → RTL → emulation → silicon; the speed–accuracy–effort trade-off
 - [`verification_validation_calibration.md`](01_foundations/verification_validation_calibration.md) — Verification vs validation vs calibration, the verification ladder, held-out validation, digital twins
 

@@ -111,7 +111,7 @@ A synchronous clocked design where everything changes every cycle is effectively
 
 Hybrids are common: event-driven at the system level, with an analytical or time-stepped model inside an event; or continuous dynamics integrated between discrete events (as in switching power-converter simulators).
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Time-Stepping and Event-Driven"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/19) · [InfSim 02, "Interactive: Step Through the Event List"](https://brendanjameslynskey.github.io/InfSim_02_Simulator_Development_Tutorial/#slide-04)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Time-Stepping and Event-Driven"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/22) · [InfSim 02, "Interactive: Step Through the Event List"](https://brendanjameslynskey.github.io/InfSim_02_Simulator_Development_Tutorial/#slide-04)
 
 ---
 

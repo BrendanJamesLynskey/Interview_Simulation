@@ -44,7 +44,29 @@ A simulator typically does four jobs: **architecture exploration** (which design
 
 **Go deeper on this GitHub:** [InfSim 01, "The Pre-Silicon Problem"](https://brendanjameslynskey.github.io/InfSim_01_Why_Simulate/#slide-01) · [InfSim 01, "Four Jobs a Simulator Does"](https://brendanjameslynskey.github.io/InfSim_01_Why_Simulate/#slide-02)
 
-### Q3. Give examples of questions a performance simulator answers that a datasheet cannot.
+### Q3. Why simulate rather than build a prototype?
+
+**Answer:**
+
+A prototype (an FPGA build of the RTL, a test chip, a bench model) is the real design in another implementation. It is the right tool once the design is settled enough to build. Simulation wins earlier and wider:
+
+| | Simulation | Prototype |
+|---|---|---|
+| Available | From the first idea | Only once the design, or its RTL, exists |
+| Cost of a variant | A parameter change and a re-run | A rebuild: long FPGA compiles, or months for a test chip |
+| Design points | Hundreds or thousands in a sweep | A handful |
+| Visibility | Every signal, every queue, every piece of state | Only what you can probe |
+| Experiments | Overloads, failures and extreme conditions on demand | Only those that are safe and affordable to cause |
+| Fidelity | Only what the model includes, so it must be validated | Real behaviour, including effects nobody modelled |
+| Speed | Large SoCs run at tens to thousands of cycles per second in RTL simulation (indicative) | An FPGA prototype runs at tens of megahertz (indicative) |
+
+The usual answer is both, in sequence: simulate to choose and de-risk the design, prototype to run real software at speed and catch what the model left out, then use the prototype's measurements to calibrate the model.
+
+**Common mistake:** treating it as either/or, or treating the prototype as the truth. An FPGA prototype runs at a different clock, with different memories and I/O, from the final chip; its timing is no more the product's than a model's is.
+
+**Go deeper on this GitHub:** [Introduction to Simulation, "Why Simulate?"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/3) · [Introduction to Simulation, "When Simulation Is the Wrong Tool"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/5) · [Introduction to Simulation, "Gate Level, Emulation and FPGA Prototypes"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/14)
+
+### Q4. Give examples of questions a performance simulator answers that a datasheet cannot.
 
 **Answer:**
 
@@ -63,7 +85,7 @@ A datasheet gives peaks: FLOP/s, bandwidth, capacity. A simulator answers questi
 
 ## Intermediate
 
-### Q4. When does a spreadsheet beat a simulator? When does it stop being enough?
+### Q5. When does a spreadsheet beat a simulator? When does it stop being enough?
 
 **Answer:**
 
@@ -82,7 +104,7 @@ A concrete example from this GitHub: an analytic capacity bound for a disaggrega
 
 **Go deeper on this GitHub:** [InfSim 08, "Smarter Experiments: Multi-Fidelity, Search, Surrogates"](https://brendanjameslynskey.github.io/InfSim_08_Accelerating_Simulators/#slide-10) · [Glossary: multi-fidelity search and bisection](https://brendanjameslynskey.github.io/LLM_Hub_Inference_Simulators/#g-multifidelity) · [the recorded numbers (section 8 and 9)](https://github.com/BrendanJamesLynskey/Disaggregated_Inference_Sim/blob/main/examples/results.md)
 
-### Q5. "Start from the question." What does that mean when scoping a simulator?
+### Q6. "Start from the question." What does that mean when scoping a simulator?
 
 **Answer:**
 
@@ -102,9 +124,9 @@ Then derive:
 
 **Common mistake:** starting with "let's model the chip in detail" and discovering, months later, that the detail does not answer anyone's question and runs too slowly to sweep.
 
-**Go deeper on this GitHub:** [InfSim 04, "A Map: Which Question, Which Level?"](https://brendanjameslynskey.github.io/InfSim_04_Simulator_Landscape/#slide-01) · [Introduction to Simulation, "How to Choose a Level"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/27)
+**Go deeper on this GitHub:** [InfSim 04, "A Map: Which Question, Which Level?"](https://brendanjameslynskey.github.io/InfSim_04_Simulator_Landscape/#slide-01) · [Introduction to Simulation, "How to Choose a Level"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/30)
 
-### Q6. What outputs should every performance simulator produce, beyond "the answer"?
+### Q7. What outputs should every performance simulator produce, beyond "the answer"?
 
 **Answer:**
 
@@ -120,11 +142,33 @@ Then derive:
 
 **Go deeper on this GitHub:** [InfSim 06, "Hot-Spot Attribution"](https://brendanjameslynskey.github.io/InfSim_06_Metrics_Hotspots_Validation/#slide-04) · [InfSim 06, "Traces: Seeing the Timeline in Perfetto"](https://brendanjameslynskey.github.io/InfSim_06_Metrics_Hotspots_Validation/#slide-05) · [Glossary: hot-spot attribution](https://brendanjameslynskey.github.io/LLM_Hub_Inference_Simulators/#g-hotspot)
 
+### Q8. Which level would you use for architectural exploration, and which for functional verification? Why?
+
+**Answer:**
+
+They answer different questions, so they need different trade-offs between speed and exactness.
+
+| | Architectural exploration | Functional verification |
+|---|---|---|
+| Question | Which design should we build? | Does the design do what the specification says? |
+| Accuracy needed | Enough to rank the options correctly | Exact logic, bit for bit |
+| Speed needed | Very high: many design points, re-parameterised quickly | Enough to run the regression suite every night |
+| Usual level | Analytical first, then architecture- or system-level DES or transaction-level models (levels 4 and 5) | RTL simulation (level 3), then emulation or FPGA prototypes for long software-driven tests |
+| Typical tools | Rooflines and spreadsheets, SimPy, SystemC TLM, gem5-class models | Event-driven or cycle-based RTL simulators (Icarus, Verilator, commercial ones), cocotb or UVM testbenches, assertions, functional coverage |
+
+- **Exploration** starts with an analytical model to prune the space, then a discrete-event or transaction-level model for the survivors. Cycle-level detail is added only for the blocks where the answer turns on the microarchitecture. RTL is too slow and arrives too late to explore with.
+- **Verification** needs the design itself, so it runs at the RTL, against a **golden model** from a higher level acting as a scoreboard, with constrained-random stimulus, assertions and coverage closure. A performance model is not bit-exact, so it cannot sign off function.
+- **The two meet:** the higher-level model becomes the verification reference, and RTL cycle counts flow back to calibrate the architecture model.
+
+**Common mistake:** choosing by habit ("we always use the cycle-accurate model") instead of by the question. Detail that the question does not need costs speed, and detail you cannot calibrate is not accuracy.
+
+**Go deeper on this GitHub:** [Introduction to Simulation, "Motivation, Level and Tool"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/4) · [Introduction to Simulation, "How to Choose a Level"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/30) · [Introduction to Simulation, "One Accelerator, Every Level"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/20) · [InfSim 01, "Four Jobs a Simulator Does"](https://brendanjameslynskey.github.io/InfSim_01_Why_Simulate/#slide-02) · [SimEng 05, "Two Golden Models and a Scoreboard"](https://brendanjameslynskey.github.io/SimEng_05_Verification_Bridge_cocotb/#slide-04)
+
 ---
 
 ## Advanced
 
-### Q7. System design: a novel-hardware company asks you to build its first performance simulator. What do you deliver in the first month?
+### Q9. System design: a novel-hardware company asks you to build its first performance simulator. What do you deliver in the first month?
 
 **Answer (a structured model answer):**
 
@@ -149,7 +193,7 @@ Then derive:
 
 **See also:** [11 Novel Hardware and Optical Inference](../11_novel_hardware_and_optical_inference/): a worked example of simulating a novel engine before building it, including a negative result.
 
-### Q8. How do you present simulator results so that they drive a decision rather than start an argument?
+### Q10. How do you present simulator results so that they drive a decision rather than start an argument?
 
 **Answer:**
 
@@ -164,7 +208,7 @@ Then derive:
 
 **Go deeper on this GitHub:** [SimEng 09, "Template 3: a Performance Report"](https://brendanjameslynskey.github.io/SimEng_09_Specs_Requirements_Test_Plans/#slide-11) · [InfSim 06, "Statistics That Survive Review"](https://brendanjameslynskey.github.io/InfSim_06_Metrics_Hotspots_Validation/#slide-06)
 
-### Q9. Your simulator predicted the new chip would be 2× faster than the old one. Silicon measures 1.3×. How do you investigate?
+### Q11. Your simulator predicted the new chip would be 2× faster than the old one. Silicon measures 1.3×. How do you investigate?
 
 **Answer:**
 

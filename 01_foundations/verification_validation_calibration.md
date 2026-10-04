@@ -22,7 +22,7 @@ A widely used framing in the simulation literature (Sargent's) separates the con
 
 **Common mistake:** saying "validated" when the model was only calibrated to the same data it is compared against.
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Verification, Validation and Calibration"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/25) · [SimEng 09, "The V-Model"](https://brendanjameslynskey.github.io/SimEng_09_Specs_Requirements_Test_Plans/#slide-07) · [Glossary: the V-model; verification and validation](https://brendanjameslynskey.github.io/SimEng_Hub_Toolkit/#g-vmodel)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Verification, Validation and Calibration"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/28) · [SimEng 09, "The V-Model"](https://brendanjameslynskey.github.io/SimEng_09_Specs_Requirements_Test_Plans/#slide-07) · [Glossary: the V-model; verification and validation](https://brendanjameslynskey.github.io/SimEng_Hub_Toolkit/#g-vmodel)
 
 ### Q2. What is the "verification ladder" for a simulator?
 
@@ -109,7 +109,7 @@ Questions to ask:
 
 Validation is always *for a purpose*: "valid for ranking these designs at these loads within this error" is a defensible claim; "validated" with no qualifier is not.
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Verification, Validation and Calibration"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/25) · [FHESim 05, "Against Published Numbers"](https://brendanjameslynskey.github.io/FHESim_05_Results_and_Design_Space/#slide-08)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Verification, Validation and Calibration"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/28) · [FHESim 05, "Against Published Numbers"](https://brendanjameslynskey.github.io/FHESim_05_Results_and_Design_Space/#slide-08)
 
 ---
 
@@ -155,4 +155,4 @@ A pre-silicon performance simulator is therefore a model, not a twin: there is n
 
 The risk: "digital twin" is often used loosely for any detailed simulation. Use the precise term, or define it when you use it.
 
-**Go deeper on this GitHub:** [Introduction to Simulation, "Digital Twins, Defined Carefully"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/24)
+**Go deeper on this GitHub:** [Introduction to Simulation, "Digital Twins, Defined Carefully"](https://brendanjameslynskey.github.io/Introduction_to_Simulation/#/27)
