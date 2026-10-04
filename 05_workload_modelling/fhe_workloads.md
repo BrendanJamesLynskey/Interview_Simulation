@@ -141,3 +141,5 @@ So the answer depends on the algorithm, which is why hardware and algorithm must
 On this GitHub's model (with its stated, partly speculative assumptions), a realistic optical NTT engine made a bootstrap about 23× slower than a small digital design, and an idealised exact engine was 1.39× faster only on the NTT-starved design; on the memory-bound ARK-class design it was slower.
 
 **Go deeper on this GitHub:** [FHESim 04, "The Precision Tax"](https://brendanjameslynskey.github.io/FHESim_04_Optical_NTT_Engines/#slide-07) · [FHESim 04, "When It Wins and When It Loses"](https://brendanjameslynskey.github.io/FHESim_04_Optical_NTT_Engines/#slide-10) · [Glossary: ENOB and exact rounding](https://brendanjameslynskey.github.io/FHE_Hub_Accelerator_Simulators/#g-enob)
+
+**See also:** [11 Novel Hardware and Optical Inference](../11_novel_hardware_and_optical_inference/): optical transform engines for LLM inference, where the same precision and conversion arguments are applied to floats.

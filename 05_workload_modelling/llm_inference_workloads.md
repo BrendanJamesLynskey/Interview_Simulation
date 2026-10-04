@@ -139,3 +139,5 @@ So TTFT improves, TPOT and decode throughput do not, and overall throughput for 
 The serving simulator on this GitHub includes exactly such a deliberately hypothetical part ("abundant matmul throughput, ordinary memory") to make this point; its decode steps remain memory-bound.
 
 **Go deeper on this GitHub:** [InfSim 03, "The Roofline"](https://brendanjameslynskey.github.io/InfSim_03_LLM_Inference_Workloads/#slide-04) · [InfSim 01, "Why AI and Novel Compute Need System Simulators"](https://brendanjameslynskey.github.io/InfSim_01_Why_Simulate/#slide-09) · [InfSim 07, "Power in Photonic and Novel Compute"](https://brendanjameslynskey.github.io/InfSim_07_Power_and_Energy/#slide-10)
+
+**See also:** [11 Novel Hardware and Optical Inference](../11_novel_hardware_and_optical_inference/): what an optical transform engine in the prefill pool, and heterogeneous pools, do in a full serving simulation.

@@ -24,6 +24,7 @@ Unlike a generic question bank, every answer ends with a **"Go deeper on this Gi
 - [08 Simulator Engineering](#08-simulator-engineering)
 - [09 Coding Challenges](#09-coding-challenges)
 - [10 Quizzes](#10-quizzes)
+- [11 Novel Hardware and Optical Inference](#11-novel-hardware-and-optical-inference)
 - [How to Use](#how-to-use)
 - [Related Repositories](#related-repositories)
 - [Contributing](#contributing)
@@ -115,6 +116,14 @@ Self-assessment quizzes covering the major topic areas.
 - [`quiz_foundations_and_levels.md`](10_quizzes/quiz_foundations_and_levels.md) — Why simulate, the fidelity ladder, V&V, field solvers and SPICE, RTL simulation, virtual platforms, Monte Carlo
 - [`quiz_des_and_modelling.md`](10_quizzes/quiz_des_and_modelling.md) — Event lists, SimPy, queueing, PDES, roofline, TLM, memory systems, LLM and FHE workloads, front ends
 - [`quiz_power_measurement_engineering.md`](10_quizzes/quiz_power_measurement_engineering.md) — Power and energy, yield and PPA, profilers and statistics, ports and parity, testing and CI
+- [`quiz_novel_hardware.md`](10_quizzes/quiz_novel_hardware.md) — Fourier optics, optical MACs against transform engines, precision passes, conversion and static energy, mask capacity, heterogeneous pools, break-even analysis, compute in transit
+
+### 11 Novel Hardware and Optical Inference
+
+Modelling a novel engine before it exists, worked through optical computing for LLM inference: the physics and its costs, then the engine inside a disaggregated-serving simulator. Answers quote the [Fourier Optics for Inference](https://github.com/BrendanJamesLynskey/LLM_Hub_Fourier_Optics_Inference) series and Disaggregated_Inference_Sim's recorded results.
+
+- [`fourier_optics_and_optical_compute.md`](11_novel_hardware_and_optical_inference/fourier_optics_and_optical_compute.md) — The lens and the 4f system, the phase problem, optical MACs against transform engines, ENOB and averaging passes, conversion and static energy, mask capacity, integrated photonics, evaluating a proposed engine
+- [`optical_inference_system_modelling.md`](11_novel_hardware_and_optical_inference/optical_inference_system_modelling.md) — Where transforms appear in LLM inference, why prefill, heterogeneous pools, adding a transform device to a serving simulator, Amdahl and break-even analysis, compute in transit for the KV hand-off, trusting a model without hardware
 
 ## How to Use
 
@@ -134,6 +143,8 @@ This repository is structured as a progressive simulation and performance-modell
 
 7. **Use the quizzes** to identify weak areas, then follow the "Go deeper on this GitHub" links into the decks and code.
 
+8. **Practise on novel hardware.** Section 11 applies everything above to an engine that does not exist yet (optical computing for LLM inference), including how to reach and defend a negative result.
+
 The system-design questions (for example, sizing the prefill and decode pools of a serving cluster, or building a novel accelerator's first simulator) have structured model answers; practise giving them aloud in about ten minutes.
 
 ## Related Repositories
@@ -141,6 +152,7 @@ The system-design questions (for example, sizing the prefill and decode pools of
 - **[Introduction_to_Simulation](https://github.com/BrendanJamesLynskey/Introduction_to_Simulation)** — An on-ramp deck: every level of simulation in engineering, with measured speeds and an interactive solver demo
 - **[LLM_Hub_Inference_Simulators](https://github.com/BrendanJamesLynskey/LLM_Hub_Inference_Simulators)** — Eleven decks on simulating LLM inference hardware and serving, with a glossary
 - **[FHE_Hub_Accelerator_Simulators](https://github.com/BrendanJamesLynskey/FHE_Hub_Accelerator_Simulators)** — Five decks taking an FHE accelerator from workload to design-space results
+- **[LLM_Hub_Fourier_Optics_Inference](https://github.com/BrendanJamesLynskey/LLM_Hub_Fourier_Optics_Inference)** — Three decks on Fourier optics for disaggregated inference: the physics, where transforms appear, and simulated optical prefill pools
 - **[SimEng_Hub_Toolkit](https://github.com/BrendanJamesLynskey/SimEng_Hub_Toolkit)** — Thirteen decks on the engineering around simulators: Rust, SystemC, memory systems, verification, CI, specifications, measurement and PPA
 - **[Disaggregated_Inference_Sim](https://github.com/BrendanJamesLynskey/Disaggregated_Inference_Sim)** and **[FHE_Accelerator_Sim](https://github.com/BrendanJamesLynskey/FHE_Accelerator_Sim)** — The SimPy simulators whose recorded results many answers quote
 - **[Interview_Computer_Architecture](https://github.com/BrendanJamesLynskey/Interview_Computer_Architecture)** — Pipelines, out-of-order execution and the memory hierarchy behind the models

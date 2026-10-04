@@ -147,6 +147,8 @@ Then derive:
 
 **Go deeper on this GitHub:** [InfSim 02, "Structuring a Simulator That Lasts"](https://brendanjameslynskey.github.io/InfSim_02_Simulator_Development_Tutorial/#slide-09) · [SimEng 09, "Template 1: a Simulator Specification"](https://brendanjameslynskey.github.io/SimEng_09_Specs_Requirements_Test_Plans/#slide-09) · [FHESim 03, "What the Simulator Must Answer"](https://brendanjameslynskey.github.io/FHESim_03_Simulating_an_FHE_Accelerator/#slide-01)
 
+**See also:** [11 Novel Hardware and Optical Inference](../11_novel_hardware_and_optical_inference/): a worked example of simulating a novel engine before building it, including a negative result.
+
 ### Q8. How do you present simulator results so that they drive a decision rather than start an argument?
 
 **Answer:**

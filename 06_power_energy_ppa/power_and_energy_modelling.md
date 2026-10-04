@@ -148,3 +148,5 @@ Which metric fits:
 On this GitHub's serving simulator, a hypothetical optical part with 10× lower energy per FLOP but higher idle power landed at 2.28 J per token at 4 req/s, against 2.77 J for the GPU baseline and 2.26 J for the GPU under a 400 W cap with DVFS. Decode is memory-bound, so cheap FLOPs barely help, and static power made up 65% of the optical system's energy.
 
 **Go deeper on this GitHub:** [InfSim 07, "Power in Photonic and Novel Compute"](https://brendanjameslynskey.github.io/InfSim_07_Power_and_Energy/#slide-10) · [Glossary: power in photonic compute](https://brendanjameslynskey.github.io/LLM_Hub_Inference_Simulators/#g-photonicpower) · [FHESim 04, "Conversion Energy and Static Power"](https://brendanjameslynskey.github.io/FHESim_04_Optical_NTT_Engines/#slide-08)
+
+**See also:** [11 Novel Hardware and Optical Inference](../11_novel_hardware_and_optical_inference/): conversion energy, static laser and tuning power, and a break-even analysis for an optical engine.
