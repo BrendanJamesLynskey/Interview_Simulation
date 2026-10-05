@@ -39,7 +39,7 @@ On an 80 GB device holding 16 GB of weights, about 400k tokens of cache fit at 9
 
 **Answer:**
 
-- **TTFT (time to first token):** arrival to the first output token: queueing + prefill (+ KV transfer in disaggregated serving).
+- **TTFT (time to first token):** arrival to the first output token: queueing + prefill. In disaggregated serving it also includes the KV transfer only if the decode side emits the first token; where the prefill side emits it (as in this series' simulator), the transfer shows up in hand-off latency and TPOT instead.
 - **TPOT (time per output token):** average time between output tokens after the first, per request: `(end − first token time) / (output tokens − 1)`.
 - **Inter-token latency (ITL):** each individual gap between consecutive tokens. Its distribution exposes stalls (a decode step delayed by a prefill) that the per-request TPOT average hides.
 - **Goodput:** the rate of requests that meet **all** their service-level objectives (e.g. TTFT ≤ 1 s and TPOT ≤ 50 ms). Throughput counts every request; goodput counts only useful ones.
